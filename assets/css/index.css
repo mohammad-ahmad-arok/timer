@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/assets/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-shadow: 1px 1px 4px #000;
+    overflow: hidden;
+}
+
+.timer {
+    font-size: 6rem;
+    margin-bottom: 80px;
+    padding: 20px 40px;
+    border-radius: 15px;
+    font-family: "Orbitron", sans-serif;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ffffff17, #ffffff49);
+    padding-inline: 24px;
+    padding-block: 12px;
+    border: 1px #fff solid;
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    -ms-border-radius: 999px;
+    -o-border-radius: 999px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    background: transparent;
+    font-size: 1.4rem;
+}
+
+#startStopBtn {
+    background: #2ec2a2;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+.win-message {
+    font-size: 2rem;
+    margin-top: 20px;
+    display: none;
+    color: rgb(255, 255, 255);
+    animation: pulse 1s infinite;
+    z-index: 10;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
