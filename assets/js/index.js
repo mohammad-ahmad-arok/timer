@@ -2,25 +2,27 @@ let startTime = 0;
 let elapsedTime = 0;
 let timerInterval;
 let isRunning = false;
-const MAX_DURATION = 60 * 1000;
+const MAX_DURATION = 60 * 1000; // دقيقة واحدة بالمللي ثانية
 
-const timerDisplay = document.getElementById('timer');
+const hoursEl = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
+const millisecondsEl = document.getElementById('milliseconds');
+
 const startStopBtn = document.getElementById('startStopBtn');
 const resetBtn = document.getElementById('resetBtn');
 const winMessage = document.getElementById('winMessage');
 
-function formatTime(ms) {
-    let milliseconds = parseInt((ms % 1000) / 10);
+function displayTime(ms) {
+    let milliseconds = Math.floor((ms % 1000) / 10);
     let seconds = Math.floor((ms / 1000) % 60);
     let minutes = Math.floor((ms / (1000 * 60)) % 60);
     let hours = Math.floor((ms / (1000 * 60 * 60)));
 
-    return (
-        String(hours).padStart(2, '0') + ':' +
-        String(minutes).padStart(2, '0') + ':' +
-        String(seconds).padStart(2, '0') + '.' +
-        String(milliseconds).padStart(2, '0')
-    );
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+    millisecondsEl.textContent = String(milliseconds).padStart(2, '0');
 }
 
 function updateTimer() {
@@ -29,14 +31,14 @@ function updateTimer() {
     if (elapsedTime >= MAX_DURATION) {
         clearInterval(timerInterval);
         elapsedTime = MAX_DURATION;
-        timerDisplay.textContent = formatTime(elapsedTime);
+        displayTime(elapsedTime);
         isRunning = false;
-        startStopBtn.textContent = '🎉';
+        startStopBtn.innerHTML = '🎉';
         showWin();
         return;
     }
 
-    timerDisplay.textContent = formatTime(elapsedTime);
+    displayTime(elapsedTime);
 }
 
 startStopBtn.onclick = function () {
@@ -49,16 +51,16 @@ startStopBtn.onclick = function () {
     } else {
         clearInterval(timerInterval);
         isRunning = false;
-        startStopBtn.innerHTML = '<i class="fa-solid fa-play">';
+        startStopBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
     }
 };
 
 resetBtn.onclick = function () {
     clearInterval(timerInterval);
     elapsedTime = 0;
-    timerDisplay.textContent = "00:00:00.00";
+    displayTime(elapsedTime);
     isRunning = false;
-    startStopBtn.innerHTML = '<i class="fa-solid fa-play">';
+    startStopBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
     winMessage.style.display = 'none';
 };
 
@@ -105,4 +107,3 @@ function showWin() {
         startVelocity: 45,
     });
 }
-

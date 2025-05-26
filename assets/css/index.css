@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/assets/images/background.jpg');
+    background-image: url('../images/background.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -98,4 +98,38 @@ canvas {
     left: 0;
     pointer-events: none;
     z-index: 9999;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
+    user-select: none;
+    color: white;
+}
+
+.time-part {
+    width: 1.8ch;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.separator {
+    width: 1.2ch;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    .timer {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .timer {
+        font-size: 2rem;
+    }
 }

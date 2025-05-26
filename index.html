@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <!-- confetti  -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -23,7 +23,15 @@
 </head>
 
 <body>
-    <div class="timer" id="timer">00:00:00.00</div>
+    <div class="timer" id="timer">
+        <div class="time-part" id="hours">00</div>
+        <div class="separator">:</div>
+        <div class="time-part" id="minutes">00</div>
+        <div class="separator">:</div>
+        <div class="time-part" id="seconds">00</div>
+        <div class="separator">.</div>
+        <div class="time-part" id="milliseconds">00</div>
+    </div>
 
     <div class="buttons">
         <button id="startStopBtn"><i class="fa-solid fa-play"></i></button>
@@ -33,7 +41,7 @@
     <div class="win-message" id="winMessage">🎉 END 🎉</div>
 
     <!-- js -->
-    <script src="/assets/js/index.js"></script>
+    <script src="assets/js/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
         integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
