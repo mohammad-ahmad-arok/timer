@@ -12,7 +12,7 @@
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -23,23 +23,21 @@
 </head>
 
 <body>
-    <div class="timer" id="timer">
-        <div class="time-part" id="hours">00</div>
-        <div class="separator">:</div>
-        <div class="time-part" id="minutes">00</div>
-        <div class="separator">:</div>
-        <div class="time-part" id="seconds">00</div>
-        <div class="separator">.</div>
-        <div class="time-part" id="milliseconds">00</div>
+    <img src="./assets/images/background.jpg" class="background" alt="background">
+    <div class="contener">
+        <div class="timer" id="timer">
+            <div class="time-part" id="minutes">00</div>
+            <div class="separator">:</div>
+            <div class="time-part" id="seconds">00</div>
+            <div class="separator">.</div>
+            <div class="time-part" id="milliseconds">00</div>
+        </div>
+
+        <div class="buttons">
+            <button id="startStopBtn"><i class="fa-solid fa-play"></i></button>
+            <button id="resetBtn"><i class="fa-solid fa-rotate-right"></i></button>
+        </div>
     </div>
-
-    <div class="buttons">
-        <button id="startStopBtn"><i class="fa-solid fa-play"></i></button>
-        <button id="resetBtn"><i class="fa-solid fa-rotate-right"></i></button>
-    </div>
-
-    <div class="win-message" id="winMessage">🎉 END 🎉</div>
-
     <!-- js -->
     <script src="assets/js/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
