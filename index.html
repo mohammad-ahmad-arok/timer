@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
     <link rel="stylesheet" href="assets/css/index.css">
-    <!-- confetti  -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +27,7 @@
     </div>
     <div class="contener">
         <div class="timer" id="timer">
-            <div class="time-part" id="minutes">00</div>
+            <div class="time-part" id="minutes">01</div>
             <div class="separator">:</div>
             <div class="time-part" id="seconds">00</div>
             <div class="separator">.</div>
@@ -41,11 +39,10 @@
             <button id="resetBtn"><i class="fa-solid fa-rotate-right"></i></button>
         </div>
     </div>
+    <audio id="tickSound" src="./assets/images/tick.mp3" loop></audio>
+
     <!-- js -->
     <script src="assets/js/index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
-        integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>
