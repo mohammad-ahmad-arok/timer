@@ -150,6 +150,38 @@ canvas {
     font-weight: bold;
 }
 
+.end-message {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    animation: flashText 1s infinite;
+}
+
+.flash {
+    animation: flashBox 1s infinite;
+}
+
+@keyframes flashBox {
+    0%, 100% {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+}
+
+@keyframes flashText {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+
 @media only screen and (max-width: 1960px) {
     .logo img {
         max-width: 20vh;

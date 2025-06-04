@@ -4,9 +4,9 @@ let timerInterval;
 let isRunning = false;
 const MAX_DURATION = 60 * 1000;
 
-const minutesEl = document.getElementById('minutes');
-const secondsEl = document.getElementById('seconds');
-const millisecondsEl = document.getElementById('milliseconds');
+let minutesEl = document.getElementById('minutes');
+let secondsEl = document.getElementById('seconds');
+let millisecondsEl = document.getElementById('milliseconds');
 
 const startStopBtn = document.getElementById('startStopBtn');
 const resetBtn = document.getElementById('resetBtn');
@@ -22,7 +22,11 @@ function playTickingSound(shouldPlay) {
         tickSound.currentTime = 0;
     }
 }
-
+function displayEndMessage() {
+    const timerBox = document.getElementById('timer');
+    timerBox.innerHTML = '<div class="end-message">انتهى الوقت</div>';
+    timerBox.classList.add('flash');
+}
 
 function displayTime(ms) {
     let milliseconds = Math.floor((ms % 1000) / 10);
@@ -36,6 +40,7 @@ function displayTime(ms) {
 
 function handleCountdownEffects(remainingTime) {
     if (remainingTime <= 10000) {
+       
         document.querySelector('.timer').style.color = 'red';
         playTickingSound(true);
     } else {
@@ -51,7 +56,7 @@ function updateTimer() {
 
     if (remainingTime <= 0) {
         clearInterval(timerInterval);
-        displayTime(0);
+        displayEndMessage();
         isRunning = false;
         startStopBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
         playTickingSound(false);
@@ -79,10 +84,28 @@ startStopBtn.onclick = function () {
 resetBtn.onclick = function () {
     clearInterval(timerInterval);
     elapsedTime = 0;
-    displayTime(MAX_DURATION);
     isRunning = false;
     startStopBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-    document.querySelector('.timer').style.color = '';
     playTickingSound(false);
+
+    // إعادة شكل العداد
+    const timerBox = document.getElementById('timer');
+    timerBox.classList.remove('flash');
+    timerBox.innerHTML = `
+        <div class="time-part" id="minutes">01</div>
+        <div class="separator">:</div>
+        <div class="time-part" id="seconds">00</div>
+        <div class="separator">.</div>
+        <div class="time-part" id="milliseconds">00</div>
+    `;
+
+    // إعادة ربط العناصر
+    minutesEl = document.getElementById('minutes');
+    secondsEl = document.getElementById('seconds');
+    millisecondsEl = document.getElementById('milliseconds');
+
+    displayTime(MAX_DURATION);
+    document.querySelector('.timer').style.color = '';
 };
+
 
